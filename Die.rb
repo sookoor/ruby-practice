@@ -14,7 +14,7 @@ class Die
     @numberShowing
   end
 
-  def cheat(number)
+  def cheat number
     if number > 0 and number < 7
       @numberShowing = number
     end

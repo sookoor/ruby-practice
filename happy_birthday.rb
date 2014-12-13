@@ -13,6 +13,6 @@ if now.month < birthmonth or (now.month == birthmonth and now.day < birthday)
   years -= 1
 end
 
-for i in 1..years
+years.times do
   puts "SPANK!"
 end

@@ -15,7 +15,9 @@ class Die
   end
 
   def cheat(number)
-    @numberShowing = number
+    if number > 0 and number < 7
+      @numberShowing = number
+    end
   end
 
 end
@@ -28,3 +30,5 @@ die.roll
 puts "Rolled: " + die.showing.to_s
 die.cheat(3)
 puts "Set to 3: " + die.showing.to_s
+die.cheat(7)
+puts "Set to 7: " + die.showing.to_s

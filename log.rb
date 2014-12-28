@@ -1,15 +1,21 @@
+$nestingDepth = 0
 def log descriptionOfBlock, &block
-  puts 'Beginning "' + descriptionOfBlock + '"...'
+  puts ' ' * $nestingDepth + 'Beginning "' + descriptionOfBlock + '"...'
+  $nestingDepth += 2
   returnValue = block.call
-  puts '..."' + descriptionOfBlock + '" finished, returning: ' + returnValue.to_s
+  $nestingDepth -= 2
+  puts ' ' * $nestingDepth + '..."' + descriptionOfBlock + '" finished, returning: ' + returnValue.to_s
 end
 
 log 'outer block' do
   log 'some little block' do
-    5
+    log 'teeny-tiny block' do
+      'lots of love'
+    end
+    42
   end
   log 'yet another block' do
-    'I like Thai food!'
+    'I like Indian food!'
   end
-  false
+  true
 end
